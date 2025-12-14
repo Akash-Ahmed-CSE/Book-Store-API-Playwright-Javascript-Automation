@@ -7,7 +7,7 @@ async function createUserAndToken(username, password) {
   if (!username) username = `user_${Date.now()}`;
   if (!password) password = 'Test@1234';
 
-  // 1️⃣ Create User
+  // 1️ Create User
   const createRes = await api.post('/Account/v1/User', {
     data: { userName: username, password }
   });
@@ -17,7 +17,7 @@ async function createUserAndToken(username, password) {
   }
   const userBody = await createRes.json();
 
-  // 2️⃣ Generate Token
+  // 2️ Generate Token
   const tokenRes = await api.post('/Account/v1/GenerateToken', {
     data: { userName: username, password }
   });
